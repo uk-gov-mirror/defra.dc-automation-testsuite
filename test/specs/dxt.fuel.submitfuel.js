@@ -1,0 +1,12 @@
+const dxtFuelCompanyName = require("../page-objects/dxtFormFuel/dxt.fuel.companyName.page")
+const dxtFuelCompanyName = require("../page-objects/dxtFormFuel/dxt.fuel.ChangesToOriginalFuelPage")
+const dxtFuelCompanyName = require("../page-objects/dxtFormFuel/dxt.fuel.CustomerComplaintsPage")
+const dxtFuelCompanyName = require("../page-objects/dxtFormFuel/dxt.fuel.ManufactureOrRebrandPage")
+const dxtFuelCompanyName = require("../page-objects/dxtFormFuel/dxt.fuel.declaration")
+const dxtFuelCompanyName = require("../page-objects/dxtFormFuel/dxt.fuel.howDoYouSellFuel")
+const dxtFuelCompanyName = require("../page-objects/dxtFormFuel/dxt.fuel.summary.page")
+const dxtFuelCompanyName = require("../page-objects/dxtFormFuel/dxt.fuel.responsible.person")
+const dxtFuelCompanyName = require("../page-objects/dxtFormFuel/dxt.fuel.originalfueldetails")
+const dxtFuelCompanyName = require("../page-objects/dxtFormFuel/dxt.fuel.brandname")
+const dxtFuelCompanyName = require("../page-objects/dxtFormFuel/dxt.fuel.mainContactPage")
+

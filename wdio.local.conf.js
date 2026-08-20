@@ -1,4 +1,5 @@
-import allure from 'allure-commandline'
+import { execSync } from 'child_process'
+
 
 const debug = process.env.DEBUG
 const oneMinute = 60 * 1000
@@ -33,7 +34,7 @@ export const config = {
   // then the current working directory is where your `package.json` resides, so `wdio`
   // will be called from there.
   //
-  specs: ['./test/specs/**/*.e2e.js'],
+  specs: ['./test/specs/**/*.js'],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -55,7 +56,7 @@ export const config = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
-  maxInstances: 1,
+  maxInstances: 10,
   //
   // If you have trouble getting all important capabilities together, check out the
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -73,7 +74,8 @@ export const config = {
               '--no-sandbox',
               '--disable-infobars',
               '--disable-gpu',
-              '--window-size=1920,1080'
+              '--window-size=1920,1080',
+              '--start-maximized'
             ]
           }
         }
@@ -117,7 +119,7 @@ export const config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: 'http://localhost:3000',
+ // baseUrl: 'http://localhost:3000',
   //
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
@@ -311,7 +313,7 @@ export const config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {<Object>} results object containing test results
    */
-  onComplete: function (exitCode, config, capabilities, results) {
+ /* onComplete: function (exitCode, config, capabilities, results) {
     const reportError = new Error('Could not generate Allure report')
     const generation = allure(['generate', 'allure-results', '--clean'])
 
@@ -329,7 +331,15 @@ export const config = {
         resolve()
       })
     })
-  }
+  }*/
+
+
+reporters: [
+  'spec',
+  ['allure', { outputDir: 'allure-results' }]
+]
+
+
 
   /**
    * Gets executed when a refresh happens.
