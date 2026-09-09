@@ -1,8 +1,4 @@
-import { execSync } from 'child_process'
-
-
 const debug = process.env.DEBUG
-const oneMinute = 60 * 1000
 const oneHour = 60 * 60 * 1000
 
 const execArgv = ['--loader', 'esm-module-alias/loader']
@@ -75,7 +71,18 @@ export const config = {
               '--disable-infobars',
               '--disable-gpu',
               '--window-size=1920,1080',
-              '--start-maximized'
+              '--enable-features=NetworkService,NetworkServiceInProcess',
+              '--password-store=basic',
+              '--use-mock-keychain',
+              '--dns-prefetch-disable',
+              '--disable-background-networking',
+              '--disable-remote-fonts',
+              '--ignore-certificate-errors',
+              '--host-resolver-rules=MAP www.googletagmanager.com 127.0.0.1',
+              '--disable-popup-blocking',
+              '--disable-notifications',
+              '--disable-features=InsecureDownloadWarnings',
+              '--remote-debugging-port=9222'
             ]
           }
         }
@@ -119,7 +126,7 @@ export const config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
- // baseUrl: 'http://localhost:3000',
+  // baseUrl: 'http://localhost:3000',
   //
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
@@ -275,7 +282,7 @@ export const config = {
         'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "At least 1 assertion failed"}}'
       )
     }
-  },
+  }
 
   /**
    * Hook that gets executed after the suite has ended
@@ -313,7 +320,7 @@ export const config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {<Object>} results object containing test results
    */
- /* onComplete: function (exitCode, config, capabilities, results) {
+  /* onComplete: function (exitCode, config, capabilities, results) {
     const reportError = new Error('Could not generate Allure report')
     const generation = allure(['generate', 'allure-results', '--clean'])
 
@@ -331,15 +338,7 @@ export const config = {
         resolve()
       })
     })
-  }*/
-
-
-reporters: [
-  'spec',
-  ['allure', { outputDir: 'allure-results' }]
-]
-
-
+  } */
 
   /**
    * Gets executed when a refresh happens.

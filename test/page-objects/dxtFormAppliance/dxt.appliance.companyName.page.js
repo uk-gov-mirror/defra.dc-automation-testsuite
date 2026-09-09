@@ -1,10 +1,11 @@
-import DxtFuelFormComponent from './dxtFuelForm.component.js'
+import DxtApplianceFormComponent from './dxtApplianceForm.component.js'
 
 /**
- * DXT fuel form - "Company name" (first page of the journey).
+ * DXT appliance form - "Company name" (first page of the journey).
  */
-class DxtFuelCompanyNamePage extends DxtFuelFormComponent {
-  static SLUG = 'company-name'
+class DxtApplianceCompanyNamePage extends DxtApplianceFormComponent {
+  static PATH =
+    '/form/preview/draft/get-a-stove-or-other-appliance-certified-for-use-in-smoke-control-areas/company-name'
 
   static HEADING = 'Company name'
 
@@ -14,7 +15,7 @@ class DxtFuelCompanyNamePage extends DxtFuelFormComponent {
 
   // Company name
   get companyNameInput() {
-    return $('#XpAWNK')
+    return $('#CTGxGs')
   }
 
   //
@@ -36,7 +37,7 @@ class DxtFuelCompanyNamePage extends DxtFuelFormComponent {
   //
 
   async verifyPageLoaded() {
-    await super.verifyPageLoaded(DxtFuelCompanyNamePage.HEADING)
+    await super.verifyPageLoaded(DxtApplianceCompanyNamePage.HEADING)
     await expect(this.companyNameInput).toBeDisplayed()
   }
 
@@ -45,8 +46,8 @@ class DxtFuelCompanyNamePage extends DxtFuelFormComponent {
   //
 
   open() {
-    return super.open(DxtFuelCompanyNamePage.SLUG)
+    return browser.url(DxtApplianceCompanyNamePage.PATH)
   }
 }
 
-export default new DxtFuelCompanyNamePage()
+export default new DxtApplianceCompanyNamePage()

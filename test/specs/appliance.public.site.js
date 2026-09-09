@@ -1,11 +1,7 @@
+import applianceSearchPage from '../page-objects/appliance.search.page.js'
 
-import applianceSearchPage from '../page-objects/appliance.search.page.js';
-
-describe('Verify the Search Appliance List', function()
-{
-
-    
-   /* it('Navigation to Guidance page for smoke control from Appliance Search',async ()=>{
+describe('Verify the Search Appliance List', function () {
+  /* it('Navigation to Guidance page for smoke control from Appliance Search',async ()=>{
 
         browser.url('https://aqie-dc-frontend.test.cdp-int.defra.cloud/finder/appliances/');
         //console.log(await applianceSearchPage.appliancePageHeader.getText());
@@ -58,16 +54,13 @@ describe('Verify the Search Appliance List', function()
             console.log('Next Page link exists and is visible');
         }
 
-    })*/
+    }) */
 
-    it("Verify Search Appliance Functionality", async()=>{
-        browser.url('https://aqie-dc-frontend.test.cdp-int.defra.cloud/finder/appliances/');
-        await applianceSearchPage.searchInput.setValue('Model');
-        await applianceSearchPage.searchButton.click();
-        
-        
-    }
-        
+  it('Verify Search Appliance Functionality', async () => {
+    browser.url(
+      'https://aqie-dc-frontend.test.cdp-int.defra.cloud/finder/appliances/'
     )
-
-    })
+    await applianceSearchPage.searchInput.setValue('Model')
+    await applianceSearchPage.searchButton.click()
+  })
+})
